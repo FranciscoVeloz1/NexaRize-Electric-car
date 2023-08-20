@@ -63,7 +63,7 @@ class ElectricCar {
 
   // Turn On/Off the car
   TurnOnCarHandler = () => {
-    // if (this.pedal.scaleTo(0, 255) > 30) return;
+    if (this.pedal.scaleTo(0, 255) > 30) return;
     if (this.state.carState.isOn) return this.TurnOffCarHandler();
 
     this.turnLed.on();
