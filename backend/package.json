@@ -4,7 +4,7 @@
   "description": "Making the logic and electronic for a Electric car with NodeJS, Johnny-five and typescript",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -R src/public/ build/",
     "start": "npm run build && node build/index.js",
     "dev": "tsnd --respawn src/index.ts",
     "port": "sudo chmod a+rw /dev/ttyACM0"
