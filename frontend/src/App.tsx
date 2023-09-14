@@ -1,7 +1,9 @@
+import Tachometer from "@components/Tachometer";
+
 const App = () => {
   return (
     <div>
-      <h1>Hello world</h1>
+      <Tachometer />
     </div>
   );
 };
