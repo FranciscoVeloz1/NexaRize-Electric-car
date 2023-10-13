@@ -20,7 +20,7 @@ const App = () => {
     }
   };
   return (
-    <div className="w-full h-screen bg-gradient-to-r from-blue-500 to-green-500 p-4">
+    <div className="w-full h-screen bg-gray-900 p-4">
       <CarBoard mode={mode} speed={sliderValue} />
 
       {/* Simulation of the controls */}
@@ -30,7 +30,7 @@ const App = () => {
         <input
           type="range"
           min="0"
-          max="280"
+          max="180"
           step="1"
           value={sliderValue}
           onChange={handleSliderChange}
