@@ -2,7 +2,7 @@ import http from "http";
 import morgan from "morgan";
 import express from "express";
 import routes from "./routes";
-import { dirname, join } from "path";
+import { join } from "path";
 
 // Initializations
 const app = express();
