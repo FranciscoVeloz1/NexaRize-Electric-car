@@ -2,7 +2,7 @@ import CarBoard from "@components/CarBoard";
 import { ChangeEvent, useState } from "react";
 
 const App = () => {
-  const [sliderValue, setSliderValue] = useState(50);
+  const [sliderValue, setSliderValue] = useState(0);
   const [mode, setMode] = useState<"P" | "R" | "D" | "N">("P");
 
   const handleSliderChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -30,7 +30,7 @@ const App = () => {
         <input
           type="range"
           min="0"
-          max="180"
+          max="270"
           step="1"
           value={sliderValue}
           onChange={handleSliderChange}

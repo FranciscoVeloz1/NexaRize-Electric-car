@@ -72,15 +72,6 @@ const Revolutions = ({ speed }: props) => {
         }}
       ></div>
 
-      {/* Hide middle - considering remove it */}
-      {/* <div
-        className="w-96 h-64 bg-gray-900 absolute z-30 border-t-2 border-white"
-        style={{
-          top: 200,
-          left: -2,
-        }}
-      ></div> */}
-
       {/* Arrow */}
       <div
         className="w-48 h-48 bg-transparent absolute z-40"
@@ -92,7 +83,7 @@ const Revolutions = ({ speed }: props) => {
         <div
           className="w-48 h-48 bg-transparent relative transform"
           style={{
-            rotate: `${speed}deg`,
+            rotate: `${speed-45}deg`,
             transition: "all 0.4s",
           }}
         >
