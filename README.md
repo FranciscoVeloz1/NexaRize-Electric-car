@@ -122,10 +122,6 @@ npm run dev:app     # start frontend dev enviroment
 npm run start       # start the production enviroment
 ```
 
-## Testing
-
-Explain how to run tests and provide any relevant information about the testing setup.
-
 ## Contributing
 
 Thank you for considering contributing to our project! 🚀 To ensure a smooth collaboration, please follow these guidelines:
