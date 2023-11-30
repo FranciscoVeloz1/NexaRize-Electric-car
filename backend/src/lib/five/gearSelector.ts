@@ -1,14 +1,16 @@
 import { Sensor, Led } from 'johnny-five'
 import { CarEntity } from '../entities/state.entity'
 
-// Parking mode
-export const parkingMode = (
-  state: CarEntity,
-  pedal: Sensor,
-  parkingLed: Led,
-  forwardLed: Led,
+interface params {
+  state: CarEntity
+  pedal: Sensor
+  parkingLed: Led
+  forwardLed: Led
   reverseLed: Led
-) => {
+}
+
+// Parking mode
+export const parkingMode = ({ state, pedal, parkingLed, forwardLed, reverseLed }: params) => {
   if (!state.carState.isOn) return
   if (pedal.scaleTo(0, 255) > 40) return
   if (state.carState.mode === 'parking') return
@@ -20,13 +22,7 @@ export const parkingMode = (
 }
 
 // Forward mode
-export const forwardMode = (
-  state: CarEntity,
-  pedal: Sensor,
-  parkingLed: Led,
-  forwardLed: Led,
-  reverseLed: Led
-) => {
+export const forwardMode = ({ state, pedal, parkingLed, forwardLed, reverseLed }: params) => {
   if (!state.carState.isOn) return
   if (pedal.scaleTo(0, 255) > 40) return
   if (state.carState.mode === 'forward') return
@@ -38,13 +34,7 @@ export const forwardMode = (
 }
 
 // Reverse Mode
-export const reverseMode = (
-  state: CarEntity,
-  pedal: Sensor,
-  parkingLed: Led,
-  forwardLed: Led,
-  reverseLed: Led
-) => {
+export const reverseMode = ({ state, pedal, parkingLed, forwardLed, reverseLed }: params) => {
   if (!state.carState.isOn) return
   if (pedal.scaleTo(0, 255) > 40) return
   if (state.carState.mode === 'reverse') return

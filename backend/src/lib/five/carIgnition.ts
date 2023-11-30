@@ -1,21 +1,23 @@
 import { Sensor, Led } from 'johnny-five'
 import { CarEntity } from '../entities/state.entity'
 
-// Car igition
-export const carIgnition = (
-  pedal: Sensor,
-  ingnitionLed: Led,
-  parkingLed: Led,
-  forwardLed: Led,
-  reverseLed: Led,
+interface params {
   state: CarEntity
-) => {
+  pedal: Sensor
+  parkingLed: Led
+  forwardLed: Led
+  reverseLed: Led
+  ignitionLed: Led
+}
+
+// Car igition
+export const carIgnition = ({ pedal, ignitionLed, parkingLed, forwardLed, reverseLed, state }: params) => {
   if (pedal.scaleTo(0, 255) > 30) return
 
   if (state.carState.isOn) {
     if (state.carState.mode !== 'parking') return
 
-    ingnitionLed.off()
+    ignitionLed.off()
     forwardLed.off()
     parkingLed.off()
     reverseLed.off()
@@ -23,7 +25,7 @@ export const carIgnition = (
     return console.log('Turning off the car...')
   }
 
-  ingnitionLed.on()
+  ignitionLed.on()
   parkingLed.on()
   state.carState.isOn = true
   return console.log('Turning on the car...')

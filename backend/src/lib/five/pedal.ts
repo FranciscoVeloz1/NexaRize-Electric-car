@@ -1,9 +1,17 @@
 import { Sensor, Led } from 'johnny-five'
-import { CarEntity } from '../entities/state.entity'
 import { motorHandler } from './carEngine'
+import { CarEntity } from '../entities/state.entity'
+
+interface params {
+  state: CarEntity
+  pedal: Sensor
+  motorIn1: Led
+  motorIn2: Led
+  motorEn: Led
+}
 
 // Accelerator pedal
-export const pedalHandler = (state: CarEntity, pedal: Sensor, motorIn1: Led, motorIn2: Led, motorEn: Led) => {
+export const pedalHandler = ({ state, pedal, motorIn1, motorIn2, motorEn }: params) => {
   try {
     if (!state.carState.isOn) return
     const speed = pedal.scaleTo(0, 255)

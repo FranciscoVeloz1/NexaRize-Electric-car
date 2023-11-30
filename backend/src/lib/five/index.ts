@@ -15,10 +15,10 @@ export default function InitializeBoard() {
 
   board.on('ready', () => {
     // Buttons
-    const ignitionButton = new five.Button(4)
-    const parkingButton = new five.Button(5)
-    const forwardButton = new five.Button(6)
-    const reverseButton = new five.Button(7)
+    const ignitionBtn = new five.Button(4)
+    const parkingBtn = new five.Button(5)
+    const forwardBtn = new five.Button(6)
+    const reverseBtn = new five.Button(7)
 
     // Leds
     const ignitionLed = new five.Led(8)
@@ -35,10 +35,10 @@ export default function InitializeBoard() {
     const pedal = new five.Sensor('A5')
 
     // Events
-    ignitionButton.on('press', () => carIgnition(pedal, ignitionLed, parkingLed, forwardLed, reverseLed, state))
-    parkingButton.on('press', () => parkingMode(state, pedal, parkingLed, forwardLed, reverseLed))
-    forwardButton.on('press', () => forwardMode(state, pedal, forwardLed, parkingLed, reverseLed))
-    reverseButton.on('press', () => reverseMode(state, pedal, reverseLed, parkingLed, forwardLed))
-    pedal.on('change', () => pedalHandler(state, pedal, motorIn1, motorIn2, motorEn))
+    ignitionBtn.on('press', () => carIgnition({ pedal, ignitionLed, parkingLed, forwardLed, reverseLed, state }))
+    parkingBtn.on('press', () => parkingMode({ state, pedal, parkingLed, forwardLed, reverseLed }))
+    forwardBtn.on('press', () => forwardMode({ state, pedal, forwardLed, parkingLed, reverseLed }))
+    reverseBtn.on('press', () => reverseMode({ state, pedal, reverseLed, parkingLed, forwardLed }))
+    pedal.on('change', () => pedalHandler({ state, pedal, motorIn1, motorIn2, motorEn }))
   })
 }
